@@ -9,7 +9,7 @@ class Comentario(models.Model):
     email_comentario = models.EmailField(verbose_name='E-mail')
     comentario = models.TextField(verbose_name='Comentário')
     post_comentario = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name='Post')
-    usuario_comentario = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name='Usuário')
+    usuario_comentario = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name='Usuário', blank=True, null=True) # permite escrever comentários sem estar logado
     data_comentario = models.DateTimeField(default=timezone.now, verbose_name='Data')
     publicacao_comentario = models.BooleanField(default=False, verbose_name='Publicado')
 
